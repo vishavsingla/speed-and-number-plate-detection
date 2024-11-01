@@ -1,6 +1,8 @@
 from ultralytics import YOLO
 import cv2
 import numpy as np
+import warnings
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 import util
 from sort.sort import *
@@ -15,7 +17,7 @@ coco_model = YOLO('yolov8n.pt')
 license_plate_detector = YOLO('license_plate_detector.pt')
 
 # load video
-cap = cv2.VideoCapture('./sample.mp4')
+cap = cv2.VideoCapture(0)
 fps = cap.get(cv2.CAP_PROP_FPS)  # Frames per second of the video
 
 vehicles = [2, 3, 5, 7]
